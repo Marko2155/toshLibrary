@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>toshLibrary</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                background-color: black;
+            }
+
+            h1, p, h2, h3 {
+                color: white;
+                text-align: center;
+            }
+
+            nav, a {
+                color: white;
+                text-align: center;
+            }
+
+            iframe {
+                border: none;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body style="text-align: center;">
+        <h1>toshLibrary</h1>
+        <p>A place to get and play tosh projects</p>
+        <nav>
+            <a href="/">Home</a> | 
+            <a href="/projects">Library</a> | 
+            <a href="/upload">Upload</a>
+        </nav>
+        <hr/>
+        <h2>Library</h2>
+    </body>
+    <script>
+
+    fetch("/api/v1/projects").then(async function(response) {
+        const filesJson = await response.json()
+        filesJson.files.forEach(function(file) {
+            const hyperlink = document.createElement("a")
+            hyperlink.href = file
+            hyperlink.innerHTML = file
+            document.body.append(hyperlink)
+            const linebreak = document.createElement("br")
+            document.body.append(linebreak)
+        })
+    })
+    </script>
+</html>

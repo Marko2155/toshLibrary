@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>toshLibrary</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                background-color: black;
+            }
+
+            h1, p, h2, h3, label {
+                color: white;
+                text-align: center;
+            }
+
+            nav, a {
+                color: white;
+                text-align: center;
+            }
+
+            iframe {
+                border: none;
+                width: 100%;
+            }
+
+            #uploadForm {
+                text-align: center;
+                margin: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>toshLibrary</h1>
+        <p>A place to get and play tosh projects</p>
+        <nav>
+            <a href="/">Home</a> | 
+            <a href="/projects">Library</a> | 
+            <a href="/upload">Upload</a>
+        </nav>
+        <hr/>
+        <h2>Upload Project</h2>
+        <div id="uploadForm">
+            <form action="/api/v1/upload" method="post" enctype="multipart/form-data">
+                <label for="sb2File">tosh Project: </label>
+                <input accept=".sb2" id="sb2File" type="file" name="sb2File"/><br>
+                <input type="submit">
+            </form>
+        </div>
+    </body>
+</html>

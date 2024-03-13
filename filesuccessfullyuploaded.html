@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>toshLibrary</title>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        h1, p, h2, h3, label {
+            color: white;
+            text-align: center;
+        }
+
+        nav, a {
+            color: white;
+            text-align: center;
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+        }
+
+        #uploadForm {
+            text-align: center;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>toshLibrary</h1>
+    <p>A place to get and play tosh projects</p>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/projects">Library</a> |
+        <a href="/upload">Upload</a>
+    </nav>
+    <hr/>
+    <h2>File successfully uploaded!</h2>
+    <h3>Redirecting to Library in 5 seconds....</h3>
+</body>
+<script>
+    const delay = ms => new Promise(res => setTimeout(res, ms));
+
+    async function redirect() {
+        await delay(5000);
+        location.replace("/projects")
+    }
+
+    redirect()
+</script>
+</html>
